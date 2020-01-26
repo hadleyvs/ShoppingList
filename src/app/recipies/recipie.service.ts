@@ -12,17 +12,21 @@ export class RecipeService {
     recipeSelected = new EventEmitter<Recipe>();
 
     private recipies: Recipe[] = [
-        new Recipe('Biriyani', 'Test Recipe', 'https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg',
+        new Recipe('Biriyani', 'Test Recipe', 'https://cdn.pixabay.com/photo/2017/11/06/07/21/clay-2922934_960_720.png',
             [
                 new Ingredient('Chicken', 1),
                 new Ingredient('Elachi', 2)
             ]),
-        new Recipe('Mandi', 'Another Test Recipe', 'https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg',
+        new Recipe('Mandi', 'Another Test Recipe', 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Mandi.PNG/220px-Mandi.PNG',
             [
                 new Ingredient('Pepper', 10),
                 new Ingredient('Beef', 2)
             ])
     ];
+
+    getRecipe(index: number) {
+        return this.recipies[index];
+    }
 
     getRecipies() {
         return this.recipies.slice();
