@@ -13,18 +13,24 @@ export class RecipeService {
     }
     // recipeSelected = new EventEmitter<Recipe>();
 
-    private recipies: Recipe[] = [
-        new Recipe('Biriyani', 'Test Recipe', 'https://cdn.pixabay.com/photo/2017/11/06/07/21/clay-2922934_960_720.png',
-            [
-                new Ingredient('Chicken', 1),
-                new Ingredient('Elachi', 2)
-            ]),
-        new Recipe('Mandi', 'Another Test Recipe', 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Mandi.PNG/220px-Mandi.PNG',
-            [
-                new Ingredient('Pepper', 10),
-                new Ingredient('Beef', 2)
-            ])
-    ];
+    private recipies: Recipe[] = [];
+    // private recipies: Recipe[] = [
+    //     new Recipe('Biriyani', 'Test Recipe', 'https://cdn.pixabay.com/photo/2017/11/06/07/21/clay-2922934_960_720.png',
+    //         [
+    //             new Ingredient('Chicken', 1),
+    //             new Ingredient('Elachi', 2)
+    //         ]),
+    //     new Recipe('Mandi', 'Another Test Recipe', 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Mandi.PNG/220px-Mandi.PNG',
+    //         [
+    //             new Ingredient('Pepper', 10),
+    //             new Ingredient('Beef', 2)
+    //         ])
+    // ];
+
+    setRecipies(recipes: Recipe[]) {
+        this.recipies = recipes;
+        this.recipesChanged.next(this.getRecipies());
+    }
 
     getRecipe(index: number) {
         return this.recipies[index];
